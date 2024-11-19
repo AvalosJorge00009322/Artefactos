@@ -12,7 +12,15 @@ function App() {
     password: "Root1234", // Contraseña MQTT
   };
 
-  const topics = ["/test/int", "/test/float", "/test/comment"]; // Lista de topics a los que se suscribirá
+  const topics = [
+    "/test/int",
+    "/test/float", 
+    "/test/comment",
+    "/external/temperature",
+    "/external/humidity",
+    "/external/light",
+    "/external/rain",
+  ]; // Lista de topics a los que se suscribirá
 
   return (
     <MqttProvider brokerUrl={brokerUrl} options={options} topics={topics}>

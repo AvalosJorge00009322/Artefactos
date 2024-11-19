@@ -5,7 +5,7 @@ import CardField from "./CardField";
 const Grove = () => {
     return (
     <main className="min-h-[100dvh] h-full bg-[#162D1B] justify-center items-center">
-      <Navbar title="HUERTO"/>
+      <Navbar title="INVERNADERO "/>
       <CardField />    
     </main>
     );
