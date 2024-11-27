@@ -20,6 +20,14 @@ function App() {
     "/external/humidity",
     "/external/light",
     "/external/rain",
+    "/internal/section1/temperature",
+    "/internal/section2/temperature",
+    "/internal/section3/temperature",
+    "/internal/section4/temperature",
+    "/internal/section1/humidity",
+    "/internal/section2/humidity",
+    "/internal/section3/humidity",
+    "/internal/section4/humidity",
   ]; // Lista de topics a los que se suscribirá
 
   return (
