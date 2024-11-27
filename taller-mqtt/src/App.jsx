@@ -6,10 +6,10 @@ import GreenHouse from "./components/GreenHouse";
 
 
 function App() {
-  const brokerUrl = "ws://192.168.232.171:9001"; // URL de tu broker MQTT -> ws://<IP>:<Puerto>
+  const brokerUrl = "ws://172.17.0.1:9001"; // URL de tu broker MQTT -> ws://<IP>:<Puerto>
   const options = {
-    username: "avalosjorge", // Usuario MQTT
-    password: "Root1234", // Contraseña MQTT
+    username: "ROQUE", // Usuario MQTT
+    password: "2002", // Contraseña MQTT
   };
 
   const topics = [

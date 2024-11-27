@@ -104,7 +104,7 @@ const GreenHouse = () => {
             <img src={rainIcon} alt="Lluvia" className="w-16 h-16" />
             <h3 className="text-lg font-semibold">Lluvia Detectada</h3>
             <p className="text-3xl font-bold">
-              {messages["/external/rain"] === "1" ? "Sí" : "No"}
+              {messages["/external/rain"] === "1" ? "No" : "Si"}
             </p>
           </div>
         </div>
