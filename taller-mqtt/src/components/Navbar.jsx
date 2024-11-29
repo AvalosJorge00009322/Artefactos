@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import homeIconOn from '../icons/homeOn.png';
@@ -13,8 +12,8 @@ const Navbar = ( { title }) => {
     const isGroveActive = location.pathname === '/grove' || location.pathname === '/';
 
   return (
-    <nav className="bg-[#162D1B] p-8 flex flex-col md:flex-row items-start justify-between">
-      <h1 className="text-white text-xl md:text-5xl font-montserrat mb-2 md:mb-0">{title}</h1>
+    <nav className="bg-[#23472B] p-8 flex flex-col md:flex-row items-start justify-between">
+      <h1 className="text-white text-xl md:text-5xl font-montserrat mb-3 md:mb-0">{title}</h1>
       
       <div className="flex space-x-2 md:space-x-4">
         <Link to="/greenhouse"> 
@@ -34,3 +33,5 @@ const Navbar = ( { title }) => {
 };
 
 export default Navbar;
+
+

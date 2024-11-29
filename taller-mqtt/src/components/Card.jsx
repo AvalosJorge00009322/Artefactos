@@ -5,7 +5,7 @@ import plantImage from '../image/planta.jpg';
 
 const Card = ({ title, temperature, humidity }) => {
   return (
-    <div className="bg-[#2f603a] text-white rounded-2xl p-6 w-full max-w-[600px] shadow-xl transform hover:scale-105 transition-transform duration-300">
+    <div className="bg-[#31643C] text-white rounded-2xl p-6 w-full max-w-[600px] shadow-xl transform hover:scale-105 transition-transform duration-300">
       {/* Título e Imagen */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl font-bold flex-1">{title}</h2>
@@ -35,3 +35,5 @@ const Card = ({ title, temperature, humidity }) => {
 };
 
 export default Card;
+
+
