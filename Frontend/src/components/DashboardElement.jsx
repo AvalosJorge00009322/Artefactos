@@ -1,11 +1,8 @@
-function DashboardElement({ title, value, unit }) {
-  //title: Título del elemento
-  //value: Valor del elemento
-  //unit: Unidad de medida del elemento
+function DashboardElement({ title, value }) {
   return (
-    <div className="p-4 rounded-md bg-slate-50 text-neutral-800 flex flex-col gap-4justify-center items-center">
-      <h2 className="font-bold text-lg">{title}</h2>
-      <p className="text-2xl">{value} {unit}</p>
+    <div className="bg-[#2F4F4F] p-4 rounded-lg text-center shadow-md">
+      <h2 className="font-semibold text-lg mb-2">{title}</h2>
+      <p className="text-2xl font-bold">{value}</p>
     </div>
   );
 }

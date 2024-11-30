@@ -1,4 +1,5 @@
 const app = require('./app');
+const mqttClient = require('./mqttClient');
 const dotenv = require('dotenv');
 
 // Cargar variables de entorno
