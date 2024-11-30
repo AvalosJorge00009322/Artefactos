@@ -1,4 +1,4 @@
-const { insertSensorData, getSensorData } = require('../models/sensorModel');
+const { insertSensorData, getSensorData, getSensorDataByRange } = require('../models/sensorModel');
 const { successResponse, errorResponse } = require('../utils/response');
 
 // Controlador para insertar datos
@@ -13,7 +13,7 @@ const storeSensorData = async (req, res) => {
   }
 };
 
-// Controlador para consultar datos
+// Controlador para consultar datos por tipo y fecha específica
 const fetchSensorData = async (req, res) => {
   const { type, date } = req.query;
 
@@ -25,4 +25,16 @@ const fetchSensorData = async (req, res) => {
   }
 };
 
-module.exports = { storeSensorData, fetchSensorData };
+// Controlador para consultar datos por rango de fechas
+const fetchSensorDataByRange = async (req, res) => {
+  const { type, sensor, startDate, endDate } = req.query;
+
+  try {
+    const data = await getSensorDataByRange(type, sensor, startDate, endDate);
+    successResponse(res, 'Datos obtenidos exitosamente', data);
+  } catch (error) {
+    errorResponse(res, 'Error al obtener datos por rango de fechas', error.message);
+  }
+};
+
+module.exports = { storeSensorData, fetchSensorData, fetchSensorDataByRange };

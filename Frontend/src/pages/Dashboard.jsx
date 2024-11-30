@@ -1,29 +1,20 @@
-import { useMqtt } from "../hooks/UseMqtt";
-import DashboardElement from "../components/DashboardElement";
-import DashboardForm from "../components/DashboardPublishForm";
+import React from 'react';
+import SensorChart from '../components/SensorChart';
 
-function Dashboard() {
-  // Obtener los mensajes de los topics suscritos
-  const { messages } = useMqtt();
-
+const Dashboard = () => {
   return (
-    <main className="min-h-[100dvh] h-full bg-[#162D1B] text-slate-100 flex flex-col justify-center items-center gap-6 p-4">
-      <h1 className="font-bold text-xl">Taller MQTT</h1>
-      <div className="w-full max-w-2xl flex flex-col gap-10 justify-center items-center">
-        {/* Formulario para publicar mensajes */}
-        <DashboardForm topic="/test/message" label="Message"/>
-
-        {/* Elementos para mostrar los mensajes de los topics suscritos */}
-        <div className="flex flex-wrap gap-6 w-full justify-center items-center">
-          <DashboardElement title={"Char"} value={messages["/test/comment"]} />
-
-          <DashboardElement title={"Integer"} value={messages["/test/int"]} />
-
-          <DashboardElement title={"Float"} value={messages["/test/float"]} />
-        </div>
+    <main className="min-h-screen bg-gray-100 p-6">
+      <h1 className="text-3xl font-bold text-center mb-6">Dashboard de Sensores</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <SensorChart type="internal" sensor="temperature" />
+        <SensorChart type="internal" sensor="humidity" />
+        <SensorChart type="external" sensor="temperature" />
+        <SensorChart type="external" sensor="humidity" />
+        <SensorChart type="external" sensor="light" />
+        <SensorChart type="external" sensor="rain" />
       </div>
     </main>
   );
-}
+};
 
 export default Dashboard;

@@ -16,7 +16,7 @@ const insertSensorData = async (type, section, sensor, value) => {
     .query(query);
 };
 
-// Obtiene datos por tipo y fecha
+// Obtiene datos por tipo y fecha específica
 const getSensorData = async (type, date) => {
   const pool = await connectDB();
   const query = `
@@ -32,4 +32,23 @@ const getSensorData = async (type, date) => {
   return result.recordset;
 };
 
-module.exports = { insertSensorData, getSensorData };
+// Obtiene datos por rango de fechas
+const getSensorDataByRange = async (type, sensor, startDate, endDate) => {
+  const pool = await connectDB();
+  const query = `
+    SELECT id, type, section, sensor, value, date, time
+    FROM sensor_data
+    WHERE type = @type AND sensor = @sensor
+    AND date BETWEEN @startDate AND @endDate
+    ORDER BY date, time ASC;
+  `;
+  const result = await pool.request()
+    .input('type', sql.VarChar, type)
+    .input('sensor', sql.VarChar, sensor)
+    .input('startDate', sql.Date, startDate)
+    .input('endDate', sql.Date, endDate)
+    .query(query);
+  return result.recordset;
+};
+
+module.exports = { insertSensorData, getSensorData, getSensorDataByRange };

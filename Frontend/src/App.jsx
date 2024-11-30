@@ -4,7 +4,6 @@ import Dashboard from "./pages/Dashboard";
 import Grove from "./components/Grove";
 import GreenHouse from "./components/GreenHouse";
 
-
 function App() {
   const brokerUrl = "ws://172.17.0.1:9001"; // URL de tu broker MQTT -> ws://<IP>:<Puerto>
   const options = {
@@ -14,7 +13,7 @@ function App() {
 
   const topics = [
     "/test/int",
-    "/test/float", 
+    "/test/float",
     "/test/comment",
     "/external/temperature",
     "/external/humidity",
@@ -36,7 +35,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Grove />} />
           <Route path="/greenhouse" element={<GreenHouse />} />
-          <Route path="/grove" element={<Grove />} />   
+          <Route path="/grove" element={<Grove />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </MqttProvider>
