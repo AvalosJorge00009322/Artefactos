@@ -2,7 +2,8 @@ const app = require('./app');
 const mqttClient = require('./mqttClient');
 const dotenv = require('dotenv');
 
-// Cargar variables de entorno
+
+// Carga variables de entorno
 dotenv.config();
 
 const PORT = process.env.PORT || 3000;
