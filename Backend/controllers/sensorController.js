@@ -13,17 +13,26 @@ const storeSensorData = async (req, res) => {
   }
 };
 
-// Controlador para consultar datos por tipo y fecha específica
+// Controlador para obtener datos de sensores
 const fetchSensorData = async (req, res) => {
-  const { type, date } = req.query;
+  const { type, sensor } = req.query;
 
   try {
-    const data = await getSensorData(type, date);
-    successResponse(res, 'Datos obtenidos exitosamente', data);
+    const data = await getSensorData(type, sensor);
+
+    // Validar los datos devueltos
+    if (!data || data.length === 0) {
+      return successResponse(res, "No se encontraron datos para este sensor", []);
+    }
+
+    // Formatear datos si es necesario (opcional, ya formateamos en el modelo)
+    successResponse(res, "Datos obtenidos exitosamente", data);
   } catch (error) {
-    errorResponse(res, 'Error al obtener datos', error.message);
+    errorResponse(res, "Error al obtener datos", error.message);
   }
-};
+}
+
+
 
 // Controlador para consultar datos por rango de fechas
 const fetchSensorDataByRange = async (req, res) => {

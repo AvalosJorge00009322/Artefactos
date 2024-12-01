@@ -12,9 +12,6 @@ function App() {
   };
 
   const topics = [
-    "/test/int",
-    "/test/float",
-    "/test/comment",
     "/external/temperature",
     "/external/humidity",
     "/external/light",
