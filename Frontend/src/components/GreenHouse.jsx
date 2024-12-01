@@ -106,27 +106,27 @@ const GreenHouse = () => {
               <ul className="grid grid-cols-2 gap-4 text-white">
                 <li className="flex items-center space-x-2">
                   <span className="w-4 h-4 bg-blue-400 rounded-full"></span>
-                  <strong>Temperatura:</strong> <spam>Frío (azul) </spam>
+                  <strong>Temperatura:</strong> <span>Frío (azul) </span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-4 h-4 bg-green-400 rounded-full"></span>
-                  <strong>Ideal: </strong> <spam>Verde</spam>
+                  <strong>Ideal: </strong> <span>Verde</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-4 h-4 bg-red-400 rounded-full"></span>
-                  <strong>Caliente:</strong> <spam>Rojo</spam>
+                  <strong>Caliente:</strong> <span>Rojo</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-4 h-4 bg-gray-400 rounded-full"></span>
-                  <strong>Seco: </strong> <spam>Gris</spam>
+                  <strong>Seco: </strong> <span>Gris</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-4 h-4 bg-yellow-400 rounded-full"></span>
-                  <strong>Baja luz: </strong> <spam>Gris</spam>
+                  <strong>Baja luz: </strong> <span>Gris</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-4 h-4 bg-orange-400 rounded-full"></span>
-                  <strong>Alta Luz: </strong> <spam>Naranja</spam>
+                  <strong>Alta Luz: </strong> <span>Naranja</span>
                 </li>
               </ul>
             </div>
