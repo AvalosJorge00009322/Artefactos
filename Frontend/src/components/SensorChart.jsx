@@ -16,7 +16,6 @@ import {
 } from "chart.js";
 import { format } from "date-fns";
 
-// Registra los componentes de Chart.js
 ChartJS.register(
   LineElement,
   BarElement,
@@ -111,7 +110,7 @@ const SensorChart = ({ type, sensor, filters }) => {
                   y: {
                     title: {
                       display: true,
-                      text: "Valor del Sensor",
+                      text: "Grados Celqsius",
                       font: { size: 14 },
                     },
                   },
@@ -135,7 +134,7 @@ const SensorChart = ({ type, sensor, filters }) => {
                   y: {
                     title: {
                       display: true,
-                      text: "Valor del Sensor",
+                      text: "Porcentaje de Humedad",
                       font: { size: 14 },
                     },
                   },
