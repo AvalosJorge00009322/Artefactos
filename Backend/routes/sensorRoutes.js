@@ -1,10 +1,18 @@
-const express = require('express');
-const { storeSensorData, fetchSensorData, fetchSensorDataByRange } = require('../controllers/sensorController');
-
+const express = require("express");
 const router = express.Router();
+const {
+  storeSensorData,
+  fetchSensorData,
+  fetchSensorDataByRange,
+} = require("../controllers/sensorController");
 
-router.post('/data', storeSensorData); // Endpoint para almacenar datos
-router.get('/data', fetchSensorData);  // Endpoint para consultar datos por fecha específica
-router.get('/data/range', fetchSensorDataByRange); // Endpoint para consultar datos por rango de fechas
+// Ruta para insertar datos
+router.post("/data", storeSensorData);
+
+// Ruta para obtener datos de sensores
+router.get("/data", fetchSensorData);
+
+// Ruta para obtener datos por rango de fechas
+router.get("/data/range", fetchSensorDataByRange);
 
 module.exports = router;

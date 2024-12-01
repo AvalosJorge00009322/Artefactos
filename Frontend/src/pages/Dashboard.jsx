@@ -1,74 +1,74 @@
-// import SensorChart from "../components/SensorChart";
-
-// function Dashboard() {
-//   return (
-//     <main className="min-h-screen bg-gray-100 text-gray-800 p-6">
-//       <h1 className="text-3xl font-bold text-center mb-10">Dashboard de Sensores</h1>
-
-//       <div className="container mx-auto space-y-12">
-//         {/* Sensores Internos */}
-//         <section className="bg-white shadow-lg rounded-lg p-6">
-//           <h2 className="text-2xl font-semibold text-gray-700 mb-4">Sensores Internos</h2>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-//             <SensorChart type="internal" sensor="temperature" />
-//             <SensorChart type="internal" sensor="humidity" />
-//           </div>
-//         </section>
-
-//         {/* Sensores Externos */}
-//         <section className="bg-white shadow-lg rounded-lg p-6">
-//           <h2 className="text-2xl font-semibold text-gray-700 mb-4">Sensores Externos</h2>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-//             <SensorChart type="external" sensor="temperature" />
-//             <SensorChart type="external" sensor="humidity" />
-//             <SensorChart type="external" sensor="light" />
-//             <SensorChart type="external" sensor="rain" />
-//           </div>
-//         </section>
-//       </div>
-//     </main>
-//   );
-// }
-
-// export default Dashboard;
-
-
-import React from "react";
+import React, { useState } from "react";
 import SensorChart from "../components/SensorChart";
+import { FiThermometer, FiDroplet, FiCloudRain, FiSun } from "react-icons/fi";
 
 const Dashboard = () => {
-  const internalSensors = [
-    { type: "internal", sensor: "temperature" },
-    { type: "internal", sensor: "humidity" },
-  ];
-  const externalSensors = [
-    { type: "external", sensor: "temperature" },
-    { type: "external", sensor: "humidity" },
-    { type: "external", sensor: "light" },
-    { type: "external", sensor: "rain" },
-  ];
+  const [filters, setFilters] = useState({ startDate: "", endDate: "" });
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
-    <main className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">Dashboard de Sensores</h1>
+    <main className="p-8 bg-gray-100 min-h-screen">
+      <header className="text-center mb-8">
+        <h1 className="text-3xl font-bold text-gray-800 flex items-center justify-center gap-3">
+          <FiSun className="text-blue-500" />
+          Dashboard de Sensores
+        </h1>
+        <p className="text-gray-600">Monitoreo en tiempo real de sensores internos y externos</p>
+      </header>
+
+      {/* Filtros Globales */}
+      <section className="mb-8">
+        <div className="flex items-center gap-4 justify-center">
+          <label>
+            <span className="block text-gray-600">Desde:</span>
+            <input
+              type="datetime-local"
+              name="startDate"
+              value={filters.startDate}
+              onChange={handleFilterChange}
+              className="border rounded px-2 py-1 shadow-sm"
+            />
+          </label>
+          <label>
+            <span className="block text-gray-600">Hasta:</span>
+            <input
+              type="datetime-local"
+              name="endDate"
+              value={filters.endDate}
+              onChange={handleFilterChange}
+              className="border rounded px-2 py-1 shadow-sm"
+            />
+          </label>
+        </div>
+      </section>
 
       {/* Sensores Internos */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Sensores Internos</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {internalSensors.map((sensor, index) => (
-            <SensorChart key={index} type={sensor.type} sensor={sensor.sensor} />
-          ))}
+      <section className="mb-10">
+        <h2 className="text-xl font-semibold mb-4 flex items-center gap-2 text-green-600">
+          <FiThermometer />
+          Sensores Internos
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <SensorChart type="internal" sensor="temperature" filters={filters} />
+          <SensorChart type="internal" sensor="humidity" filters={filters} />
         </div>
       </section>
 
       {/* Sensores Externos */}
       <section>
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Sensores Externos</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {externalSensors.map((sensor, index) => (
-            <SensorChart key={index} type={sensor.type} sensor={sensor.sensor} />
-          ))}
+        <h2 className="text-xl font-semibold mb-4 flex items-center gap-2 text-blue-600">
+          <FiCloudRain />
+          Sensores Externos
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <SensorChart type="external" sensor="temperature" filters={filters} />
+          <SensorChart type="external" sensor="humidity" filters={filters} />
+          <SensorChart type="external" sensor="light" filters={filters} />
+          <SensorChart type="external" sensor="rain" filters={filters} />
         </div>
       </section>
     </main>
