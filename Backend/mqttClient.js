@@ -2,9 +2,9 @@ const mqtt = require('mqtt');
 const axios = require('axios');
 
 // Configuracion del cliente MQTT
-const client = mqtt.connect('ws://192.168.92.1:9001', {
-  username: 'ROQUE',
-  password: '2002',
+const client = mqtt.connect('ws://10.149.31.77:9001', {
+  username: 'avalosjorge',
+  password: 'Root1234',
 });
 
 // Topicos de suscripcion

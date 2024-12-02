@@ -5,7 +5,7 @@ import Grove from "./components/Grove";
 import GreenHouse from "./components/GreenHouse";
 
 function App() {
-  const brokerUrl = "ws://localhost:9001"; // URL de tu broker MQTT -> ws://<IP>:<Puerto>
+  const brokerUrl = "ws://172.18.0.1:9001"; // URL de tu broker MQTT -> ws://<IP>:<Puerto>
   const options = {
     username: "avalosjorge", // Usuario MQTT
     password: "Root1234", // Contraseña MQTT
