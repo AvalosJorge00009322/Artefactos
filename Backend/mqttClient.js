@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 const axios = require('axios');
 
 // Configuracion del cliente MQTT
-const client = mqtt.connect('ws://10.149.31.77:9001', {
+const client = mqtt.connect('ws://172.20.10.8:9001', {
   username: 'avalosjorge',
   password: 'Root1234',
 });
@@ -15,12 +15,8 @@ const topics = [
   "/external/rain",
   "/internal/section1/temperature",
   "/internal/section2/temperature",
-  "/internal/section3/temperature",
-  "/internal/section4/temperature",
   "/internal/section1/humidity",
   "/internal/section2/humidity",
-  "/internal/section3/humidity",
-  "/internal/section4/humidity",
 ];
 
 // Conectar al broker MQTT
